@@ -1,0 +1,32 @@
+{
+  "name": "chronos-config",
+  "version": "0.0.1",
+  "description": "Chronos Configuration Loader",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/xogroup/chronos-config.git"
+  },
+  "keywords": [
+    "chronos-config"
+  ],
+  "author": "XO Group, Inc.",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/xogroup/chronos-config/issues"
+  },
+  "homepage": "https://github.com/xogroup/chronos-config#readme",
+  "devDependencies": {
+    "eslint": "^3.14.1",
+    "eslint-plugin-xogroup": "^1.0.5",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0"
+  }
+}
