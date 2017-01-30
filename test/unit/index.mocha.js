@@ -10,53 +10,38 @@ describe('unit tests - index', function() {
         };
 
         return config(context)
-            .then((config) => {
-                config.should.have.property('chronos');
-                config.chronos.should.have.property('routes');
-                config.chronos.routes[0].should.have.property('path');
-                config.chronos.routes[0].path.should.equal('/rfq');
+            .then((result) => {
+                result.should.have.property('chronos');
+                result.chronos.should.have.property('routes');
+                result.chronos.routes[0].should.have.property('path');
+                result.chronos.routes[0].path.should.equal('/rfq');
 
-                config.chronos.routes[0].should.have.property('httpAction');
-                config.chronos.routes[0].httpAction.should.equal('GET');
+                result.chronos.routes[0].should.have.property('httpAction');
+                result.chronos.routes[0].httpAction.should.equal('GET');
 
-                config.chronos.routes[0].should.have.property('tags');
-                config.chronos.routes[0].tags[0].should.equal('api');
+                result.chronos.routes[0].should.have.property('tags');
+                result.chronos.routes[0].tags[0].should.equal('api');
 
-                config.chronos.routes[0].should.have.property('description');
-                config.chronos.routes[0].description.should.equal('RFQ endpoint for all clients in XO');
+                result.chronos.routes[0].should.have.property('description');
+                result.chronos.routes[0].description.should.equal('RFQ endpoint for all clients in XO');
 
-                config.chronos.routes[0].should.have.property('actions');
-                config.chronos.routes[0].actions[0].should.have.property('name');
-                config.chronos.routes[0].actions[0].name.should.equal('action 1');
+                result.chronos.routes[0].should.have.property('actions');
+                result.chronos.routes[0].actions[0].should.have.property('name');
+                result.chronos.routes[0].actions[0].name.should.equal('action 1');
 
-                config.chronos.routes[0].actions[0].should.have.property('type');
-                config.chronos.routes[0].actions[0].type.should.equal('storedProcedure');
+                result.chronos.routes[0].actions[0].should.have.property('type');
+                result.chronos.routes[0].actions[0].type.should.equal('storedProcedure');
 
-                config.chronos.routes[0].actions[1][0].should.have.property('name');
-                config.chronos.routes[0].actions[1][0].name.should.equal('action 2');
+                result.chronos.routes[0].actions[1][0].should.have.property('name');
+                result.chronos.routes[0].actions[1][0].name.should.equal('action 2');
 
-                config.chronos.routes[0].actions[1][0].should.have.property('type');
-                config.chronos.routes[0].actions[1][0].type.should.equal('http');
+                result.chronos.routes[0].actions[1][0].should.have.property('type');
+                result.chronos.routes[0].actions[1][0].type.should.equal('http');
 
-                config.chronos.routes[0].actions[1][1].should.have.property('name');
-                config.chronos.routes[0].actions[1][1].name.should.equal('action 3');
-                config.chronos.routes[0].actions[1][1].should.have.property('type');
-                config.chronos.routes[0].actions[1][1].type.should.equal('http');
-            });
-    });
-
-    it('should error if no config file found', () => {
-        const context = {
-            configPath: 'test/mocks/config/i-dont-exist.json'
-        };
-
-        return config(context)
-            .then(() => {
-                throw new Error('method should have thrown.');
-            })
-            .catch((err) => {
-                err.should.be.an('error');
-                err.message.should.equal('ENOENT: no such file or directory, open \'test/mocks/config/i-dont-exist.json\'');
+                result.chronos.routes[0].actions[1][1].should.have.property('name');
+                result.chronos.routes[0].actions[1][1].name.should.equal('action 3');
+                result.chronos.routes[0].actions[1][1].should.have.property('type');
+                result.chronos.routes[0].actions[1][1].type.should.equal('http');
             });
     });
 
