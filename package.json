@@ -1,6 +1,6 @@
 {
   "name": "chronos-config",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Chronos Configuration Loader",
   "main": "lib/index.js",
   "scripts": {
