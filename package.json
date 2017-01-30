@@ -27,6 +27,7 @@
     "chai-as-promised": "^6.0.0"
   },
   "dependencies": {
-    "bluebird": "^3.4.7"
+    "bluebird": "^3.4.7",
+    "joi": "^10.2.0"
   }
 }
