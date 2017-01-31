@@ -4,7 +4,7 @@ const { returnContents } = require('../../../lib/helpers/file');
 const { should }  = require('chai').should(); // eslint-disable-line no-unused-vars
 
 describe('unit tests - file helper', function() {
-    it('should return .js configuration file extension', () => {
+    it('should return .js file contents as object', () => {
         const filepath = '../../test/fixtures/config/sample-config.js';
 
         return returnContents(filepath)
@@ -22,8 +22,8 @@ describe('unit tests - file helper', function() {
             });
     });
 
-    it('should error if no config file found', () => {
-        const filepath = '../../test/fixtures/config/i-dont-exist.json';
+    it('should error if config file extension not .js or .json', () => {
+        const filepath = '../../test/fixtures/config/invalid-config.html';
 
         return returnContents(filepath)
             .then(() => {
@@ -34,8 +34,8 @@ describe('unit tests - file helper', function() {
             });
     });
 
-    it('should error if config file extension not .js or .json', () => {
-        const filepath = '../../test/fixtures/config/invalid-config.html';
+    it('should error if filepath file does not exist', () => {
+        const filepath = '../../test/fixtures/config/i-dont-exist.json';
 
         return returnContents(filepath)
             .then(() => {

@@ -1,0 +1,72 @@
+{
+    "chronos" : {
+        "routes" : [
+            {
+                "path": "/inquiry",
+                "httpAction": "GET",
+                "tags": [
+                    "api"
+                ],
+                "description": "Inquiry endpoint for all clients in XO",
+                "actions": [{
+                    "name": "identities",
+                    "type": "chronos.procedure.identities"
+                },
+                [
+                    {
+                        "name": "action 4",
+                        "type": "http"
+                    },
+                    {
+                        "name": "action 5",
+                        "type": "http"
+                    }
+                    ]]
+                },
+                {
+                    "path": "/quote",
+                    "httpAction": "GET",
+                    "tags": [
+                        "api"
+                    ],
+                    "description": "Quote endpoint for all clients in XO",
+                    "actions": [{
+                        "name": "identities",
+                        "type": "chronos.procedure.identities"
+                    },
+                    [
+                        {
+                            "name": "action 6",
+                            "type": "http"
+                        },
+                        {
+                            "name": "action 7",
+                            "type": "http"
+                        }
+                        ]]
+                    },
+                    {
+                        "path": "/identity",
+                        "httpAction": "GET",
+                        "tags": [
+                            "api"
+                        ],
+                        "description": "Identity endpoint for all clients in XO",
+                        "actions": [{
+                            "name": "identities",
+                            "type": "chronos.procedure.identities"
+                        },
+                        [
+                            {
+                                "name": "action 8",
+                                "type": "http"
+                            },
+                            {
+                                "name": "action 9",
+                                "type": "http"
+                            }
+                            ]]
+                        }
+                    ]
+                }
+            }
