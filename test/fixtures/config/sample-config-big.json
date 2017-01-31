@@ -14,11 +14,11 @@
                 },
                 [
                     {
-                        "name": "action 4",
+                        "name": "action 1",
                         "type": "http"
                     },
                     {
-                        "name": "action 5",
+                        "name": "action 2",
                         "type": "http"
                     }
                     ]]
@@ -36,11 +36,11 @@
                     },
                     [
                         {
-                            "name": "action 6",
+                            "name": "action 3",
                             "type": "http"
                         },
                         {
-                            "name": "action 7",
+                            "name": "action 4",
                             "type": "http"
                         }
                         ]]
@@ -58,11 +58,11 @@
                         },
                         [
                             {
-                                "name": "action 8",
+                                "name": "action 5",
                                 "type": "http"
                             },
                             {
-                                "name": "action 9",
+                                "name": "action 6",
                                 "type": "http"
                             }
                             ]]

@@ -1,7 +1,14 @@
 'use strict';
 
 const { returnContents } = require('../../../lib/helpers/file');
-const { should }  = require('chai').should(); // eslint-disable-line no-unused-vars
+
+const Code = require('code');
+const Lab = require('lab');
+const lab = exports.lab = Lab.script();
+
+const describe = lab.describe;
+const it = lab.it;
+const expect = Code.expect;
 
 describe('unit tests - file helper', function() {
     it('should return .js file contents as object', () => {
@@ -9,7 +16,7 @@ describe('unit tests - file helper', function() {
 
         return returnContents(filepath)
             .then((contents) => {
-                contents.should.be.an('object');
+                expect(contents).to.be.an.object();
             });
     });
 
@@ -18,7 +25,7 @@ describe('unit tests - file helper', function() {
 
         return returnContents(filepath)
             .then((contents) => {
-                contents.should.be.an('object');
+                expect(contents).to.be.an.object();
             });
     });
 
@@ -30,7 +37,7 @@ describe('unit tests - file helper', function() {
                 throw new Error('method should have thrown.');
             })
             .catch((err) => {
-                err.should.be.an('error');
+                expect(err).to.be.an.error();
             });
     });
 
@@ -42,7 +49,7 @@ describe('unit tests - file helper', function() {
                 throw new Error('method should have thrown.');
             })
             .catch((err) => {
-                err.should.be.an('error');
+                expect(err).to.be.an.error();
             });
     });
 });

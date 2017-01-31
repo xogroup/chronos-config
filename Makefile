@@ -2,7 +2,7 @@ NAME=xogroup/chronos-config
 VERSION=latest
 
 test:
-	@istanbul cover node_modules/.bin/_mocha -- --recursive -w
+	node_modules/.bin/lab test --assert code --lint --verbose --coverage-path /test/unit
 
 clean:
 	@rm -f npm-shrinkwrap.json

@@ -1,7 +1,14 @@
 'use strict';
 
 const { validate } = require('../../../lib/helpers/validate');
-const { should }  = require('chai').should(); // eslint-disable-line no-unused-vars
+
+const Code = require('code');
+const Lab = require('lab');
+const lab = exports.lab = Lab.script();
+
+const describe = lab.describe;
+const it = lab.it;
+const expect = Code.expect;
 
 describe('unit tests - validate helper', function() {
     it('should return configuration as an object', () => {
@@ -36,7 +43,7 @@ describe('unit tests - validate helper', function() {
 
         return validate(configuration)
             .then((result) => {
-                result.should.be.an('object');
+                expect(result).to.be.an.object();
             });
     });
 
@@ -75,7 +82,7 @@ describe('unit tests - validate helper', function() {
                 throw new Error('method should have thrown.');
             })
             .catch((err) => {
-                err.should.be.an('error');
+                expect(err).to.be.an.error();
             });
     });
 });
