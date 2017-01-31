@@ -4,22 +4,22 @@ const configuration = {
     chronos: {
         routes: [
             {
-                path       : '/quote',
+                path       : '/rfq',
                 httpAction : 'GET',
                 tags       : ['api'],
-                description: 'Quote endpoint for all clients in XO',
+                description: 'RFQ endpoint for all clients in XO',
                 actions    : [
                     {
-                        name: 'identities',
-                        type: 'chronos.procedure.identities'
+                        name: 'action 1',
+                        type: 'storedProcedure'
                     },
                     [
                         {
-                            name: 'action 1',
+                            name: 'action 2',
                             type: 'http'
                         },
                         {
-                            name: 'action 2',
+                            name: 'action 3',
                             type: 'http'
                         }
                     ]
