@@ -9,6 +9,7 @@ COMING SOON!
 ## Usage
 To get started, create a `config` directory at the root of your project and create
 a `default.js` with the following format:
+
 ```
 'use strict';
 
@@ -44,6 +45,16 @@ const configuration = {
 module.exports = configuration;
 ```
 
+***
+
+NOTE: If set, chronos-config will use your `NODE_ENV` to determine which configuration to load.
+```
+$: echo $NODE_ENV
+production
+```
+Will load configuration at `config/production.js`
+
+***
 
 Configuration must adhere to the following schema  
 
