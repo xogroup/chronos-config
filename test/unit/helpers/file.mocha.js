@@ -4,25 +4,45 @@ const { returnContents } = require('../../../lib/helpers/file');
 const { should }  = require('chai').should(); // eslint-disable-line no-unused-vars
 
 describe('unit tests - file helper', function() {
-    it('should return file contents as object', () => {
-        const filePath = 'test/mocks/config/sample-config.json';
+    it('should return .js configuration file extension', () => {
+        const filepath = '../../test/fixtures/config/sample-config.js';
 
-        return returnContents(filePath)
+        return returnContents(filepath)
+            .then((contents) => {
+                contents.should.be.an('object');
+            });
+    });
+
+    it('should return .json file contents as object', () => {
+        const filepath = '../../test/fixtures/config/sample-config.json';
+
+        return returnContents(filepath)
             .then((contents) => {
                 contents.should.be.an('object');
             });
     });
 
     it('should error if no config file found', () => {
-        const filePath = 'test/mocks/config/i-dont-exist.json';
+        const filepath = '../../test/fixtures/config/i-dont-exist.json';
 
-        return returnContents(filePath)
+        return returnContents(filepath)
             .then(() => {
                 throw new Error('method should have thrown.');
             })
             .catch((err) => {
                 err.should.be.an('error');
-                err.message.should.equal('ENOENT: no such file or directory, open \'test/mocks/config/i-dont-exist.json\'');
+            });
+    });
+
+    it('should error if config file extension not .js or .json', () => {
+        const filepath = '../../test/fixtures/config/invalid-config.html';
+
+        return returnContents(filepath)
+            .then(() => {
+                throw new Error('method should have thrown.');
+            })
+            .catch((err) => {
+                err.should.be.an('error');
             });
     });
 });

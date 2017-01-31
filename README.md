@@ -7,6 +7,44 @@ COMING SOON!
 
 
 ## Usage
+To get started, create a `config` directory at the root of your project and create
+a `default.js` with the following format:
+```
+'use strict';
+
+const configuration = {
+    chronos: {
+        routes: [
+            {
+                path       : '/example',
+                httpAction : 'GET',
+                tags       : ['api'],
+                description: 'Example endpoint',
+                actions    : [
+                    {
+                        name: 'action 1',
+                        type: 'http'
+                    },
+                    [
+                        {
+                            name: 'action 2',
+                            type: 'http'
+                        },
+                        {
+                            name: 'action 3',
+                            type: 'http'
+                        }
+                    ]
+                ]
+            }
+        ]
+    }
+};
+
+module.exports = configuration;
+```
+
+
 Configuration must adhere to the following schema  
 
 ```Javascript
