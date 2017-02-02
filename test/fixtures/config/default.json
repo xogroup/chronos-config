@@ -1,23 +1,23 @@
 {
-    "chronos":{
+    "chronos": {
         "routes": [
             {
-                "path"       : "/rfq",
+                "path"       : "/quote",
                 "httpAction" : "GET",
                 "tags"       : ["api"],
-                "description": "RFQ endpoint for all clients in XO",
+                "description": "Quote endpoint for all clients",
                 "actions"    : [
                     {
-                        "name": "action 1",
-                        "type": "storedProcedure"
+                        "name": "identities",
+                        "type": "chronos.procedure.identities"
                     },
                     [
                         {
-                            "name": "action 2",
+                            "name": "action 1",
                             "type": "http"
                         },
                         {
-                            "name": "action 3",
+                            "name": "action 2",
                             "type": "http"
                         }
                     ]

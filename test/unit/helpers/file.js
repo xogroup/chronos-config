@@ -9,47 +9,30 @@ const lab = exports.lab = Lab.script();
 const describe = lab.describe;
 const it = lab.it;
 const expect = Code.expect;
+const before = lab.before;
 
-describe('unit tests - file helper', function() {
-    it('should return .js file contents as object', () => {
-        const filepath = '../../test/fixtures/config/sample-config.js';
+describe('unit tests - file helper', () => {
 
-        return returnContents(filepath)
-            .then((contents) => {
-                expect(contents).to.be.an.object();
-            });
-    });
+    describe('while NODE_ENV not set', () => {
 
-    it('should return .json file contents as object', () => {
-        const filepath = '../../test/fixtures/config/sample-config.json';
+        before((done) => {
 
-        return returnContents(filepath)
-            .then((contents) => {
-                expect(contents).to.be.an.object();
-            });
-    });
+            delete process.env.NODE_ENV;
+            process.env.NODE_CONFIG_DIR = './test/fixtures/config/';
 
-    it('should error if config file extension not .js or .json', () => {
-        const filepath = '../../test/fixtures/config/invalid-config.html';
+            done();
+        });
 
-        return returnContents(filepath)
-            .then(() => {
-                throw new Error('method should have thrown.');
-            })
-            .catch((err) => {
-                expect(err).to.be.an.error();
-            });
-    });
+        it('should return config/default.json file contents as object', () => {
 
-    it('should error if filepath file does not exist', () => {
-        const filepath = '../../test/fixtures/config/i-dont-exist.json';
+            return returnContents()
+                .then((contents) => {
 
-        return returnContents(filepath)
-            .then(() => {
-                throw new Error('method should have thrown.');
-            })
-            .catch((err) => {
-                expect(err).to.be.an.error();
-            });
+                    expect(contents).to.be.an.object();
+                    expect(contents.routes).to.an.array();
+                    expect(contents.routes[0]).to.be.an.object();
+                    expect(contents.routes[0].path).to.equal('/quote');
+                });
+        });
     });
 });

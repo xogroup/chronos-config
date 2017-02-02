@@ -3,6 +3,9 @@
   "version": "0.0.2",
   "description": "Chronos Configuration Loader",
   "main": "lib/index.js",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,12 +24,10 @@
   "homepage": "https://github.com/xogroup/chronos-config#readme",
   "devDependencies": {
     "code": "^4.0.0",
-    "eslint": "^3.14.1",
-    "eslint-plugin-xogroup": "^1.0.5",
     "lab": "^12.1.0"
   },
   "dependencies": {
     "bluebird": "^3.4.7",
-    "joi": "^10.2.0"
+    "ez-config": "^0.2.1"
   }
 }
