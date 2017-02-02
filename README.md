@@ -3,7 +3,9 @@
  This is the configuration loading device for `chronos-core`.
 
 ## How to install this module
-COMING SOON!
+```
+npm install --save chronos-config
+```
 
 
 ## Usage
@@ -56,7 +58,30 @@ Will load configuration at `config/production.js`
 
 ***
 
-Configuration must adhere to the following schema  
+```
+'use strict';
+
+const Promise = require('bluebird');
+const Config = require('chronos-config');
+
+const logConfig = () => {
+    const config = Config().then((configuration) => {
+        console.log(configuration.routes[0].path) // /example
+    });
+};
+
+module.exports = () => {
+
+    return Promise.resolve()
+        .bind()
+        .then(logConfig)
+        .catch(function(err) {
+            throw err;
+        })
+};
+```
+
+## Configuration Schema
 
 ```Javascript
 //executable action
@@ -86,6 +111,7 @@ schema  = Joi.object().keys({
     routes: Joi.array().items(routes).min(1)
 });
 ```
+
 ## Install Dependencies
 Install the dependencies for this project and create shrinkwrap.
 ```Text
