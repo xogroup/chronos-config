@@ -12,7 +12,7 @@ npm install --save chronos-config
 To get started, create a `config` directory at the root of your project and create
 a `default.js` with the following format:
 
-```
+```Javascript
 'use strict';
 
 const configuration = {
@@ -58,16 +58,22 @@ Will load configuration at `config/production.js`
 
 ***
 
-```
+```Javascript
 'use strict';
 
 const Promise = require('bluebird');
 const Config = require('chronos-config');
+const config = new Config();
 
 const logConfig = () => {
-    const config = Config().then((configuration) => {
-        console.log(configuration.routes[0].path) // /example
-    });
+
+    config.get()
+        .then((configuration) => {
+            console.log(configuration.routes[0].path) // /example
+        })
+        .catch((err) => {
+            throw err;
+        });
 };
 
 module.exports = () => {
@@ -76,7 +82,7 @@ module.exports = () => {
         .bind()
         .then(logConfig)
         .catch(function(err) {
-            throw err;
+            console.log(err);
         })
 };
 ```

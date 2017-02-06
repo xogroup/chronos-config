@@ -24,7 +24,11 @@
   "homepage": "https://github.com/xogroup/chronos-config#readme",
   "devDependencies": {
     "code": "^4.0.0",
-    "lab": "^12.1.0"
+    "eslint-config-hapi": "^10.0.0",
+    "eslint-plugin-hapi": "^4.0.0",
+    "lab": "^12.1.0",
+    "require-dir": "^0.3.1",
+    "sinon": "^1.17.7"
   },
   "dependencies": {
     "bluebird": "^3.4.7",

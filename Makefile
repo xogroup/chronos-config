@@ -2,7 +2,7 @@ NAME=xogroup/chronos-config
 VERSION=latest
 
 test:
-	node_modules/.bin/lab test --assert code --lint --verbose --coverage-path /test/unit
+	node_modules/.bin/lab test --assert code --coverage --lint --verbose --coverage-path /test/unit
 
 clean:
 	@rm -f npm-shrinkwrap.json
